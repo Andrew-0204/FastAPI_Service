@@ -1,0 +1,6 @@
+fastapi[all]
+pydantic
+pymongo
+requests
+python-dotenv
+motor

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mymatlab:
+    image: andrewhaward/bold_wing
+    ports:
+      - "9900:9910"
+    restart: always
+
+  mymongo:
+    image: mongo
+    volumes:
+      - './mongodb:/data/db'
+    restart: always
+    ports:
+      - "5000:27017"
+
+  myreader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mymongo
+      - mymatlab
+    ports:
+      - "5001:5001"

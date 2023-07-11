@@ -1,0 +1,6 @@
+.env
+__init__.py
+__pycache__
+*.md
+!README.md
+mongodb
